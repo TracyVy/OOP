@@ -37,7 +37,7 @@ let questions = [
     message: "What is your office number",
     name: "officeNumber",
     when: function (answers) {
-      return answers.empRole === "Manager";
+      return answers.role === "Manager";
     },
     validate: function (value) {
       var pass = value.match(
@@ -46,7 +46,6 @@ let questions = [
       if (pass) {
         return true;
       }
-
       return "Please enter a valid phone number";
     },
   },
@@ -55,7 +54,7 @@ let questions = [
     message: "What is your GitHub ID?",
     name: "github",
     when: function (answers) {
-      return answers.empRole === "Engineer";
+      return answers.role === "Engineer";
     },
   },
   {
@@ -63,7 +62,7 @@ let questions = [
     message: "What school do you go to?",
     name: "school",
     when: function (answers) {
-      return answers.empRole === "Intern";
+      return answers.role === "Intern";
     },
   },
 ];
@@ -72,17 +71,3 @@ inquirer.prompt(questions).then((answers) => {
   console.log("\nEmployee Information:");
   console.log(JSON.stringify(answers, null, "  "));
 });
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-//  Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work!```
