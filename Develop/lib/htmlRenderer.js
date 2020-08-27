@@ -1,5 +1,5 @@
-const path = require("path");
 const fs = require("fs");
+const path = require("path");
 
 const templatesDir = path.resolve(__dirname, "../templates");
 
@@ -69,6 +69,7 @@ const renderIntern = (intern) => {
 };
 
 const renderMain = (html) => {
+  console.log("XXX renderMain");
   const template = fs.readFileSync(
     path.resolve(templatesDir, "main.html"),
     "utf8"
